@@ -8,10 +8,21 @@ function App() {
   const handleClick = (data: any) => {
     console.log(data);
   };
+  const handleMouseOver = (data: any) => {
+    console.log("Mouse Over", data.properties.SOVEREIGNT);
+  };
+  const handleMouseOut = (data: any) => {
+    console.log("Mouse Out", data.properties.SOVEREIGNT);
+  };
+
   return (
-    <div>
+    <div style={{ width: "100vw" }}>
       <QueryClientProvider client={queryClient}>
-        <Globe onCountryClick={handleClick} />
+        <Globe
+          onCountryClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        />
       </QueryClientProvider>
     </div>
   );
